@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+	<struts>
+	<constant name="struts.action.extension" value=",,shtml"></constant>
+	 <package name="default" namespace="/" extends="struts-default">
+	 <global-results>
+	  <result name="exception">/WEB-INF/view/error/error.jsp</result>
+	 </global-results>
+	<global-exception-mappings>
+	   <exception-mapping result="exception" exception="cn.yuol.exception.MyException"></exception-mapping>
+	</global-exception-mappings>
+	 <action name="*_*" method="{2}" class="cn.yuol.action.{1}Action" >
+	     <result name="success">/WEB-INF/view/{1}/{2}.jsp</result>
+	      <result name="error">/WEB-INF/view/{1}/error.jsp</result>
+	 </action>
+	 	 </package>
+	</struts>
+	
